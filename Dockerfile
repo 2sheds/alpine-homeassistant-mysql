@@ -1,6 +1,13 @@
 FROM kurapov/alpine-homeassistant
 MAINTAINER Oleg Kurapov <oleg@kurapov.com>
 
+ARG BRANCH="none"
+ARG VERSION="none"
+ARG COMMIT="local-build"
+ARG BUILD_DATE="1970-01-01T00:00:00Z"
+ARG NAME="kurapov/alpine-homeassistant-mysql"
+ARG VCS_URL="https://github.com/2sheds/alpine-homeassistant-mysql"
+
 ARG UID="1000"
 ARG GUID="1000"
 ARG PACKAGES="samba-common-tools mariadb-connector-c"
@@ -10,6 +17,14 @@ ARG ALPINE_VER="3.10"
 ARG EXTRA_PLUGINS="mysqlclient"
 
 ENV WHEELS_LINKS=https://wheels.home-assistant.io/alpine-${ALPINE_VER}/amd64/
+
+LABEL \
+  org.opencontainers.image.authors="Oleg Kurapov <oleg@kurapov.com>" \
+  org.opencontainers.image.licenses="GPL-2.0-only" \
+  org.opencontainers.image.title="${NAME}" \
+  org.opencontainers.image.created="${BUILD_DATE}" \
+  org.opencontainers.image.revision="${COMMIT}" \
+  org.opencontainers.image.source="${VCS_URL}"
 
 RUN apk add --no-cache ${PACKAGES} && \
     apk add --no-cache --virtual=build-dependencies build-base linux-headers python3-dev shadow ${DEPS} && \
