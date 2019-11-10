@@ -5,7 +5,7 @@ ARG UID="1000"
 ARG GUID="1000"
 ARG PACKAGES="samba-common-tools mariadb-connector-c"
 ARG DEPS="shadow"
-ARG PLUGINS="ass-nabucasa|HAP-python|pysnmp|async-upnp-client|apcaccess|netdisco|python-pushover|hbmqtt|mutagen|libsoundtouch|pyfttt|pyemby|steamodd|hole|homekit|PyNaCl|gTTS-token|pywebpush|py_vapid|holidays"
+ARG PLUGINS="ass-nabucasa|HAP-python|pysnmp|async-upnp-client|apcaccess|netdisco|python-pushover|hbmqtt|mutagen|libsoundtouch|pyfttt|pyemby|steamodd|hole|homekit|PyNaCl|gTTS-token|pywebpush|py_vapid|holidays|colorlog"
 ARG ALPINE_VER="3.10"
 ARG EXTRA_PLUGINS="mysqlclient"
 
