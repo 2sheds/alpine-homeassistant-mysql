@@ -14,7 +14,7 @@ ARG PACKAGES="samba-common-tools mariadb-connector-c bluez bluez-dev py3-bluez"
 ARG DEPS="shadow"
 ARG PLUGINS="ass-nabucasa|HAP-python|pysnmp|async-upnp-client|apcaccess|netdisco|python-pushover|hbmqtt|mutagen|libsoundtouch|pyfttt|pyemby|steamodd|hole|homekit|PyNaCl|gTTS-token|pywebpush|py_vapid|holidays|colorlog|zeroconf|pysonos|pybluez|miflora|bluepy|bt_proximity|pygatt|hkavr"
 ARG ALPINE_VER="3.10"
-ARG EXTRA_PLUGINS="mysqlclient python-dateutil<2.8.1 pycryptodome<3.4.0,>=3.3.1 bluepy==1.1.4"
+ARG EXTRA_PLUGINS="mysqlclient python-dateutil<2.8.1 pycryptodome<3.4.0,>=3.3.1 bluepy==1.3.0"
 
 ENV WHEELS_LINKS=https://wheels.home-assistant.io/alpine-${ALPINE_VER}/amd64/
 
