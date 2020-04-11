@@ -12,7 +12,7 @@ ARG UID="1000"
 ARG GUID="1000"
 ARG PACKAGES="samba-common-tools mariadb-connector-c bluez bluez-dev bluez-libs py3-bluez"
 ARG DEPS="shadow"
-ARG PLUGINS="ass-nabucasa|HAP-python|pysnmp|async-upnp-client|apcaccess|netdisco|pushover_complete|hbmqtt|mutagen|pyfttt|pyemby|steamodd|hole|homekit|PyNaCl|pywebpush|py_vapid|holidays|colorlog|zeroconf|pysonos|pybluez|miflora|bluepy|bt_proximity|pygatt|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|pycsspeechtts"
+ARG PLUGINS="ass-nabucasa|HAP-python|pysnmp|async-upnp-client|apcaccess|netdisco|pushover_complete|hbmqtt|mutagen|pyfttt|pyemby|steamodd|hole|homekit|PyNaCl|pywebpush|py_vapid|holidays|colorlog|zeroconf|pysonos|pybluez|miflora|bluepy|bt_proximity|pygatt|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|pycsspeechtts|pyipp"
 ARG ALPINE_VER="3.10"
 ARG EXTRA_PLUGINS="mysqlclient python-dateutil pycryptodome bluepy==1.3.0"
 
