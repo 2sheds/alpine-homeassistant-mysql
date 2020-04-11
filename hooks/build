@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker build \
+DOCKER_BUILDKIT=1 docker build --progress=plain \
   --build-arg COMMIT=$(git rev-parse HEAD) \
   --build-arg BRANCH=$(git rev-parse --abbrev-ref HEAD) \
   --build-arg VCS_URL=$(git config --get remote.origin.url) \
