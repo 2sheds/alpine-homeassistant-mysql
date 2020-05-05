@@ -10,11 +10,11 @@ ARG VCS_URL="https://github.com/2sheds/alpine-homeassistant-mysql"
 
 ARG UID="1000"
 ARG GUID="1000"
-ARG PACKAGES="samba-common-tools mariadb-connector-c bluez bluez-dev bluez-libs"
+ARG PACKAGES="samba-common-tools mariadb-connector-c"
 ARG DEPS
-ARG PLUGINS="ass-nabucasa|HAP-python|pysnmp|async-upnp-client|apcaccess|netdisco|pushover_complete|hbmqtt|mutagen|pyfttt|pyemby|steamodd|hole|aiohomekit|fnvhash|base36|PyNaCl|pywebpush|py_vapid|holidays|colorlog|zeroconf|pysonos|pybluez|miflora|bluepy|bt_proximity|pygatt|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|pycsspeechtts|pyipp"
+ARG PLUGINS="hass-nabucasa|pysnmp|apcaccess|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|PyNaCl|pywebpush|holidays|colorlog|netdisco|ssdp|pysonos|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|mutagen|pycsspeechtts|pyipp"
 ARG ALPINE_VER="3.10"
-ARG EXTRA_PLUGINS="mysqlclient python-dateutil pycryptodome bluepy==1.3.0 pybluez==0.22"
+ARG EXTRA_PLUGINS="mysqlclient python-dateutil pycryptodome"
 
 ENV WHEELS_LINKS=https://wheels.home-assistant.io/alpine-${ALPINE_VER}/amd64/
 
