@@ -10,11 +10,11 @@ ARG VCS_URL="https://github.com/2sheds/alpine-homeassistant-mysql"
 
 ARG UID="1000"
 ARG GUID="1000"
-ARG PACKAGES="samba-common-tools mariadb-connector-c"
+ARG PACKAGES="samba-common-tools mariadb-connector-c ffmpeg"
 ARG DEPS
 ARG PLUGINS="hass-nabucasa|pysnmp|apcaccess|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|ha-ffmpeg|PyTurboJPEG|PyNaCl|pywebpush|holidays|colorlog|netdisco|ssdp|zeroconf|pysonos|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|mutagen|pycsspeechtts|pyipp|async-upnp-client|pyowm"
 ARG ALPINE_VER="3.10"
-ARG EXTRA_PLUGINS="mysqlclient python-dateutil pycryptodome ffmpeg"
+ARG EXTRA_PLUGINS="mysqlclient python-dateutil pycryptodome"
 
 ENV WHEELS_LINKS=https://wheels.home-assistant.io/alpine-${ALPINE_VER}/amd64/
 
