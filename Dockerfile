@@ -12,7 +12,7 @@ ARG UID="1000"
 ARG GUID="1000"
 ARG PACKAGES="samba-common-tools mariadb-connector-c"
 ARG DEPS
-ARG PLUGINS="hass-nabucasa|pysnmp|apcaccess|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|PyNaCl|pywebpush|holidays|colorlog|netdisco|ssdp|zeroconf|pysonos|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|mutagen|pycsspeechtts|pyipp|async-upnp-client|pyowm"
+ARG PLUGINS="hass-nabucasa|pysnmp|apcaccess|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|PyTurboJPEG|PyNaCl|pywebpush|holidays|colorlog|netdisco|ssdp|zeroconf|pysonos|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|mutagen|pycsspeechtts|pyipp|async-upnp-client|pyowm"
 ARG ALPINE_VER="3.10"
 ARG EXTRA_PLUGINS="mysqlclient python-dateutil pycryptodome"
 
