@@ -12,7 +12,7 @@ ARG UID="1000"
 ARG GUID="1000"
 ARG PACKAGES="samba-common-tools mariadb-connector-c ffmpeg tiff"
 ARG DEPS
-ARG PLUGINS="hass-nabucasa|pysnmp|apcaccess|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|ha-ffmpeg|PyTurboJPEG|PyNaCl|pywebpush|holidays|colorlog|netdisco|ssdp|zeroconf|pysonos|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|mutagen|pycsspeechtts|pyipp|async-upnp-client|pyowm|emoji|pillow"
+ARG PLUGINS="hass-nabucasa|pysnmp|apcaccess|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|ha-ffmpeg|PyTurboJPEG|PyNaCl|pywebpush|holidays|colorlog|netdisco|ssdp|zeroconf|pysonos|plexapi|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|mutagen|pycsspeechtts|pyipp|async-upnp-client|pyowm|emoji|pillow"
 ARG ALPINE_VER="3.10"
 ARG EXTRA_PLUGINS="mysqlclient python-dateutil pycryptodome"
 
