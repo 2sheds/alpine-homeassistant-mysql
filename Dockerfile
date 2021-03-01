@@ -12,7 +12,7 @@ ARG UID="1000"
 ARG GUID="1000"
 ARG PACKAGES="samba-common-tools mariadb-connector-c ffmpeg tiff"
 ARG DEPS
-ARG PLUGINS="hass-nabucasa|pysnmp|apcaccess|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|ha-ffmpeg|PyTurboJPEG|PyNaCl|pywebpush|holidays|colorlog|netdisco|ssdp|zeroconf|pysonos|plexapi|plexauth|plexwebsocket|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|mutagen|pycsspeechtts|pyipp|async-upnp-client|pyowm|emoji|pillow"
+ARG PLUGINS="pyotp|PyQRCode|pysnmp|apcaccess|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|ha-ffmpeg|PyTurboJPEG|pywebpush|holidays|colorlog|pysonos|plexapi|plexauth|plexwebsocket|hkavr|garminconnect|spotipy|samsungctl|samsungtvws|mutagen|pycsspeechtts|pyipp|async-upnp-client|pyowm|emoji|pillow"
 ARG ALPINE_VER="3.10"
 ARG EXTRA_PLUGINS="mysqlclient python-dateutil pycryptodome"
 
@@ -27,8 +27,8 @@ LABEL \
   org.opencontainers.image.source="${VCS_URL}"
 
 RUN apk add --update-cache ${PACKAGES} && \
-    egrep -e "${PLUGINS}" /requirements_plugins.txt | grep -v '#' > /tmp/requirements_plugins_filtered.txt && \
-    pip3 install --no-cache-dir --no-index --only-binary=:all: --find-links ${WHEELS_LINKS} ${EXTRA_PLUGINS} -r /tmp/requirements_plugins_filtered.txt && \
+    grep -w -E "${PLUGINS}" /usr/src/requirements_all.txt | grep -v '#' > /tmp/requirements_plugins.txt && \
+    pip3 install --no-cache-dir --no-index --only-binary=:all: --find-links ${WHEELS_LINKS} ${EXTRA_PLUGINS} -r /tmp/requirements_plugins.txt && \
     apk add --virtual=build-dependencies shadow ${DEPS} && \
     usermod -u ${UID} hass && groupmod -g ${GUID} hass && \
     apk del build-dependencies && \
