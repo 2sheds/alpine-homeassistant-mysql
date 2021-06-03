@@ -28,7 +28,7 @@ LABEL \
 
 RUN apk add --update-cache ${PACKAGES} && \
     grep -w -E "${PLUGINS}" /usr/src/requirements_all.txt | grep -v '#' > /tmp/requirements_plugins.txt && \
-    pip3 install --no-cache-dir --no-index --only-binary=:all: --find-links ${WHEELS_LINKS} ${EXTRA_PLUGINS} -r /tmp/requirements_plugins.txt && \
+    pip3 install --no-cache-dir --only-binary=:all: --find-links ${WHEELS_LINKS} ${EXTRA_PLUGINS} -r /tmp/requirements_plugins.txt && \
     apk add --virtual=build-dependencies shadow ${DEPS} && \
     usermod -u ${UID} hass && groupmod -g ${GUID} hass && \
     apk del build-dependencies && \
