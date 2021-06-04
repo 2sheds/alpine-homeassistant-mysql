@@ -11,7 +11,7 @@ ARG VCS_URL="https://github.com/2sheds/alpine-homeassistant-mysql"
 ARG UID="1000"
 ARG GUID="1000"
 ARG PACKAGES="samba-common-tools mariadb-connector-c ffmpeg tiff py3-mysqlclient"
-ARG DEPS
+ARG DEPS="shadow"
 ARG PLUGINS="pyotp|PyQRCode|sqlalchemy|wakeonlan|paho-mqtt|netdisco|pysnmp|apcaccess|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|ha-ffmpeg|PyTurboJPEG|pywebpush|holidays|colorlog|pysonos|plexapi|plexauth|plexwebsocket|hkavr|garminconnect_aio|spotipy|samsungctl|samsungtvws|mutagen|pycsspeechtts|pyipp|async-upnp-client|pyowm|emoji|pillow"
 ARG ALPINE_VER="3.10"
 ARG EXTRA_PLUGINS="python-dateutil pycryptodome"
@@ -27,9 +27,9 @@ LABEL \
   org.opencontainers.image.source="${VCS_URL}"
 
 RUN apk add --update-cache ${PACKAGES} && \
+    apk add --virtual=build-dependencies build-base libffi-dev ${DEPS} && \
     grep -w -E "${PLUGINS}" /usr/src/requirements_all.txt | grep -v '#' > /tmp/requirements_plugins.txt && \
-    pip3 install --no-cache-dir --only-binary=:all: --find-links ${WHEELS_LINKS} ${EXTRA_PLUGINS} -r /tmp/requirements_plugins.txt && \
-    apk add --virtual=build-dependencies shadow ${DEPS} && \
+    pip3 install --no-cache-dir --prefer-binary --find-links ${WHEELS_LINKS} ${EXTRA_PLUGINS} -r /tmp/requirements_plugins.txt && \
     usermod -u ${UID} hass && groupmod -g ${GUID} hass && \
     apk del build-dependencies && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/*
