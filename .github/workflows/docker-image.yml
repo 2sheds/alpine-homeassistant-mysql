@@ -35,6 +35,7 @@ jobs:
         build-args: |
           ALPINE_VER=${{ secrets.ALPINE_VER }}
         push: true
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.repository.name }}:latest
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
     - name: Image digest
