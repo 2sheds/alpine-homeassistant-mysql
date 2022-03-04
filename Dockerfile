@@ -1,4 +1,4 @@
-FROM kurapov/alpine-homeassistant:2022.2.9
+FROM kurapov/alpine-homeassistant:2022.3.0
 MAINTAINER Oleg Kurapov <oleg@kurapov.com>
 
 ARG BRANCH="none"
