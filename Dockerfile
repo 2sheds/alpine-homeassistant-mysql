@@ -16,7 +16,7 @@ ARG PLUGINS="pyotp|PyQRCode|sqlalchemy|lru-dict|wakeonlan|paho-mqtt|netdisco|pys
 ARG ALPINE_VER="3.14"
 ARG EXTRA_PLUGINS="python-dateutil pycryptodome mysqlclient cython"
 
-ENV WHEELS_LINKS=https://wheels.home-assistant.io/alpine-${ALPINE_VER}/amd64/
+ENV WHEELS_LINKS=https://wheels.home-assistant.io/musllinux/
 
 LABEL \
   org.opencontainers.image.authors="Oleg Kurapov <oleg@kurapov.com>" \
