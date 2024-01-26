@@ -1,30 +1,15 @@
 FROM kurapov/alpine-homeassistant:2024.1.5
 MAINTAINER Oleg Kurapov <oleg@kurapov.com>
 
-ARG BRANCH="none"
-ARG VERSION="none"
-ARG COMMIT="local-build"
-ARG BUILD_DATE="1970-01-01T00:00:00Z"
-ARG NAME="kurapov/alpine-homeassistant-mysql"
-ARG VCS_URL="https://github.com/2sheds/alpine-homeassistant-mysql"
+ENV WHEELS_LINKS=https://wheels.home-assistant.io/musllinux/
 
 ARG UID="1000"
 ARG GUID="1000"
+
 ARG PACKAGES="samba-common-tools mariadb-connector-c ffmpeg tiff openjpeg libxslt v4l-utils ir_keytable"
 ARG DEPS="shadow zlib-dev libjpeg-turbo-dev tiff-dev freetype-dev lcms2-dev libwebp-dev openjpeg-dev mariadb-dev libxml2-dev libxslt-dev"
-ARG PLUGINS="pyotp|PyQRCode|sqlalchemy|lru-dict|wakeonlan|paho-mqtt|netdisco|pysnmp|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|ha-ffmpeg|PyTurboJPEG|pywebpush|holidays|colorlog|pysonos|soco|plexapi|plexauth|plexwebsocket|hkavr|spotipy|samsungctl|samsungtvws|getmac|mutagen|pycsspeechtts|pyipp|async-upnp-client|pyowm|emoji|pillow|xbox-webapi|caldav|connect-box|bleak|dbus-fast|bluetooth-data-tools|bluetooth-adapters|bluetooth-auto-recovery|xiaomi-ble|pyudev|pyserial|aioesphomeapi|janus|hassil|home-assistant-intents|aioesphomeapii|esphome-dashboard-api|aioshelly|fnv-hash-fast|webrtcvad|aioruuvigateway|sonos-websocket|python-otbr-api|pyroute2|asyncinotify|aiohttp-cors|Pillow|SQLAlchemy|PlexAPI|pushover-complete|numpy|webrtc-noise-gain|python-matter-server|ha-av|WSDiscovery|onvif-zeep-async|pyatv"
-ARG ALPINE_VER="3.14"
 ARG EXTRA_PLUGINS="python-dateutil pycryptodome mysqlclient evdev pydantic==1.10.12"
-
-ENV WHEELS_LINKS=https://wheels.home-assistant.io/musllinux/
-
-LABEL \
-  org.opencontainers.image.authors="Oleg Kurapov <oleg@kurapov.com>" \
-  org.opencontainers.image.licenses="GPL-2.0-only" \
-  org.opencontainers.image.title="${NAME}" \
-  org.opencontainers.image.created="${BUILD_DATE}" \
-  org.opencontainers.image.revision="${COMMIT}" \
-  org.opencontainers.image.source="${VCS_URL}"
+ARG PLUGINS="pyotp|PyQRCode|sqlalchemy|lru-dict|wakeonlan|paho-mqtt|netdisco|pysnmp|pushover_complete|hbmqtt|pyfttt|pyemby|steamodd|hole|HAP-python|PyQRCode|fnvhash|base36|aiohomekit|ha-ffmpeg|PyTurboJPEG|pywebpush|holidays|colorlog|pysonos|soco|plexapi|plexauth|plexwebsocket|hkavr|spotipy|samsungctl|samsungtvws|getmac|mutagen|pycsspeechtts|pyipp|async-upnp-client|pyowm|emoji|pillow|xbox-webapi|caldav|connect-box|bleak|dbus-fast|bluetooth-data-tools|bluetooth-adapters|bluetooth-auto-recovery|xiaomi-ble|pyudev|pyserial|aioesphomeapi|janus|hassil|home-assistant-intents|aioesphomeapii|esphome-dashboard-api|aioshelly|fnv-hash-fast|webrtcvad|aioruuvigateway|sonos-websocket|python-otbr-api|pyroute2|asyncinotify|aiohttp-cors|Pillow|SQLAlchemy|PlexAPI|pushover-complete|numpy|webrtc-noise-gain|python-matter-server|ha-av|WSDiscovery|onvif-zeep-async|pyatv"
 
 RUN apk add --update-cache ${PACKAGES} && \
     apk add --virtual=build-dependencies build-base libffi-dev ${DEPS} && \
@@ -34,6 +19,20 @@ RUN apk add --update-cache ${PACKAGES} && \
     apk del build-dependencies && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* python-lirc/
 
-EXPOSE 51827
+ARG BRANCH="none"
+ARG VERSION="none"
+ARG COMMIT="local-build"
+ARG BUILD_DATE="1970-01-01T00:00:00Z"
+ARG NAME="kurapov/alpine-homeassistant-mysql"
+ARG VCS_URL="https://github.com/2sheds/alpine-homeassistant-mysql"
+
+LABEL \
+  org.opencontainers.image.authors="Oleg Kurapov <oleg@kurapov.com>" \
+  org.opencontainers.image.licenses="GPL-2.0-only" \
+  org.opencontainers.image.title="${NAME}" \
+  org.opencontainers.image.created="${BUILD_DATE}" \
+  org.opencontainers.image.revision="${COMMIT}" \
+  org.opencontainers.image.source="${VCS_URL}"
 
 ENTRYPOINT ["hass", "--config=/data"]
+EXPOSE 51827
