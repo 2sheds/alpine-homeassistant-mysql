@@ -17,7 +17,7 @@ RUN apk add --update-cache ${PACKAGES} && \
     pip3 install --no-cache-dir --prefer-binary --find-links ${WHEELS_LINKS} ${EXTRA_PLUGINS} -r /tmp/requirements_plugins.txt && \
     usermod -u ${UID} hass && groupmod -g ${GUID} hass && \
     apk del build-dependencies && \
-    rm -rf /tmp/* /var/tmp/* /var/cache/apk/* python-lirc/
+    rm -rf /tmp/* /var/tmp/* /var/cache/apk/*
 
 ARG BRANCH="none"
 ARG VERSION="none"
