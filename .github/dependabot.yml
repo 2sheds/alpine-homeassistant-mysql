@@ -9,7 +9,7 @@ updates:
   directory: "/" # Location of package manifests
   schedule:
     interval: "daily"
-    time: "07:30"
+    time: "09:30"
     timezone: "Europe/Paris"
   open-pull-requests-limit: 10
 - package-ecosystem: github-actions
