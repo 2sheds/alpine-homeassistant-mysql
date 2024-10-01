@@ -33,7 +33,8 @@ jobs:
         context: .
         builder: ${{ steps.buildx.outputs.name }}
         build-args: |
-          ALPINE_VER=${{ secrets.ALPINE_VER }}
+          UID=${{ secrets.UID }}
+          GUID=${{ secrets.GUID }}
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.repository.name }}:latest
         cache-from: type=local,src=/tmp/.buildx-cache
