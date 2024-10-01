@@ -1,7 +1,7 @@
 FROM kurapov/alpine-homeassistant:2024.9.2
 MAINTAINER Oleg Kurapov <oleg@kurapov.com>
 
-ENV WHEELS_LINKS=https://wheels.home-assistant.io/musllinux/
+ENV WHEELS_INDEX="https://wheels.home-assistant.io/musllinux-index/"
 
 ARG UID="1000"
 ARG GUID="1000"
@@ -16,7 +16,7 @@ ARG PLUGINS="pyotp|PyQRCode|sqlalchemy|lru-dict|wakeonlan|paho-mqtt|netdisco|pys
 RUN apk add --update-cache ${PACKAGES} && \
     apk add --virtual=build-dependencies build-base libffi-dev ${DEPS} && \
     grep -w -E "${PLUGINS}" /usr/src/requirements_all.txt | grep -v '#' > /tmp/requirements_plugins.txt && \
-    pip3 install --no-cache-dir --prefer-binary --find-links ${WHEELS_LINKS} ${EXTRA_PLUGINS} -r /tmp/requirements_plugins.txt && \
+    pip3 install --no-cache-dir --prefer-binary --extra-index-url ${WHEELS_INDEX} ${EXTRA_PLUGINS} -r /tmp/requirements_plugins.txt && \
     usermod -u ${UID} hass && groupmod -g ${GUID} hass && \
     apk del build-dependencies && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/*
