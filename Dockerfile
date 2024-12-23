@@ -1,4 +1,4 @@
-FROM kurapov/alpine-homeassistant:2024.12.4
+FROM kurapov/alpine-homeassistant:2024.12.5
 MAINTAINER Oleg Kurapov <oleg@kurapov.com>
 
 ENV WHEELS_INDEX="https://wheels.home-assistant.io/musllinux-index/"
