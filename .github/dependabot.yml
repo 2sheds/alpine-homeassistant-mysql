@@ -12,6 +12,8 @@ updates:
     time: "09:30"
     timezone: "Europe/Paris"
   open-pull-requests-limit: 10
+  cooldown:
+    default-days: 0
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
