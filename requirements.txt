@@ -1,7 +1,5 @@
 python-dateutil
 pycryptodome
 mysqlclient
-evdev
 Brotli
-psycopg2
 faust-cchardet
